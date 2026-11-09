@@ -1,0 +1,208 @@
+{
+  "historia": "HU-02",
+  "casos": [
+    {
+      "id": "CP-01",
+      "escenario": "Ver el directorio completo con los datos principales de cada empleado",
+      "nivel": "api",
+      "precondiciones": [
+        "Existe el empleado EMP-0001 con nombre Ana López, puesto Analista de Nómina, departamento Recursos Humanos y estado activo",
+        "Existe el empleado EMP-0002 con nombre Carlos Ruiz, puesto Desarrollador, departamento Tecnología y estado activo"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados"
+      ],
+      "datos": {
+        "numero_empleado_1": "EMP-0001",
+        "numero_empleado_2": "EMP-0002"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista que incluye a EMP-0001 (nombre Ana López, puesto Analista de Nómina, departamento Recursos Humanos, estado activo) y EMP-0002 (nombre Carlos Ruiz, puesto Desarrollador, departamento Tecnología, estado activo), cada uno con numero_empleado, nombre, puesto, departamento y estado"
+    },
+    {
+      "id": "CP-02",
+      "escenario": "Ver el directorio completo con los datos principales de cada empleado",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existe el empleado EMP-0001 con nombre Ana López, puesto Analista de Nómina, departamento Recursos Humanos y estado activo",
+        "Existe el empleado EMP-0002 con nombre Carlos Ruiz, puesto Desarrollador, departamento Tecnología y estado activo"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Verificar que se muestra el elemento con data-testid 'tabla-empleados'",
+        "Verificar que existe la fila con data-testid 'fila-empleado-EMP-0001' mostrando numero-empleado-EMP-0001 y estado-empleado-EMP-0001 con texto 'Activo'",
+        "Verificar que existe la fila con data-testid 'fila-empleado-EMP-0002' mostrando numero-empleado-EMP-0002 y estado-empleado-EMP-0002 con texto 'Activo'"
+      ],
+      "datos": {
+        "numero_empleado_1": "EMP-0001",
+        "numero_empleado_2": "EMP-0002"
+      },
+      "resultado_esperado": "La tabla del directorio muestra las filas de EMP-0001 y EMP-0002 con número de empleado, nombre, puesto, departamento y estado visibles"
+    },
+    {
+      "id": "CP-03",
+      "escenario": "Buscar un empleado por nombre sin distinguir mayúsculas de minúsculas",
+      "nivel": "api",
+      "precondiciones": [
+        "Existe el empleado EMP-0003 con nombre María Fernández, correo maria.fernandez@empresa.com y departamento Ventas"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados?busqueda=maría fernández"
+      ],
+      "datos": {
+        "busqueda": "maría fernández"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista que incluye al empleado EMP-0003 con nombre María Fernández"
+    },
+    {
+      "id": "CP-04",
+      "escenario": "Buscar un empleado por nombre sin distinguir mayúsculas de minúsculas",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existe el empleado EMP-0003 con nombre María Fernández, correo maria.fernandez@empresa.com y departamento Ventas"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Escribir 'maría fernández' en el campo con data-testid 'buscar-empleados'",
+        "Verificar que aparece la fila con data-testid 'fila-empleado-EMP-0003'"
+      ],
+      "datos": {
+        "texto_busqueda": "maría fernández"
+      },
+      "resultado_esperado": "Se muestra en los resultados el empleado EMP-0003 con nombre María Fernández"
+    },
+    {
+      "id": "CP-05",
+      "escenario": "Buscar un empleado por correo sin distinguir mayúsculas de minúsculas",
+      "nivel": "api",
+      "precondiciones": [
+        "Existe el empleado EMP-0004 con nombre Jorge Pérez y correo jorge.perez@empresa.com"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados?busqueda=JORGE.PEREZ@EMPRESA.COM"
+      ],
+      "datos": {
+        "busqueda": "JORGE.PEREZ@EMPRESA.COM"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista que incluye al empleado EMP-0004 con correo jorge.perez@empresa.com"
+    },
+    {
+      "id": "CP-06",
+      "escenario": "Buscar un empleado por correo sin distinguir mayúsculas de minúsculas",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existe el empleado EMP-0004 con nombre Jorge Pérez y correo jorge.perez@empresa.com"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Escribir 'JORGE.PEREZ@EMPRESA.COM' en el campo con data-testid 'buscar-empleados'",
+        "Verificar que aparece la fila con data-testid 'fila-empleado-EMP-0004'"
+      ],
+      "datos": {
+        "texto_busqueda": "JORGE.PEREZ@EMPRESA.COM"
+      },
+      "resultado_esperado": "Se muestra en los resultados el empleado EMP-0004 con correo jorge.perez@empresa.com"
+    },
+    {
+      "id": "CP-07",
+      "escenario": "Filtrar el directorio por departamento",
+      "nivel": "api",
+      "precondiciones": [
+        "Existe el empleado EMP-0005 con nombre Lucía Gómez y departamento Finanzas",
+        "Existe el empleado EMP-0006 con nombre Pedro Sánchez y departamento Operaciones"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados?departamento=Finanzas"
+      ],
+      "datos": {
+        "departamento": "Finanzas"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista que incluye a EMP-0005 y no incluye a EMP-0006"
+    },
+    {
+      "id": "CP-08",
+      "escenario": "Filtrar el directorio por departamento",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existe el empleado EMP-0005 con nombre Lucía Gómez y departamento Finanzas",
+        "Existe el empleado EMP-0006 con nombre Pedro Sánchez y departamento Operaciones"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Seleccionar 'Finanzas' en el elemento con data-testid 'filtro-departamento'",
+        "Verificar que aparece la fila con data-testid 'fila-empleado-EMP-0005'",
+        "Verificar que no aparece la fila con data-testid 'fila-empleado-EMP-0006'"
+      ],
+      "datos": {
+        "departamento": "Finanzas"
+      },
+      "resultado_esperado": "Los resultados muestran a EMP-0005 y no muestran a EMP-0006"
+    },
+    {
+      "id": "CP-09",
+      "escenario": "Buscar un empleado que no existe en el directorio",
+      "nivel": "api",
+      "precondiciones": [
+        "Existen empleados registrados en el directorio"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados?busqueda=xyz-sin-coincidencias"
+      ],
+      "datos": {
+        "busqueda": "xyz-sin-coincidencias"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista vacía"
+    },
+    {
+      "id": "CP-10",
+      "escenario": "Buscar un empleado que no existe en el directorio",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existen empleados registrados en el directorio"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Escribir 'xyz-sin-coincidencias' en el campo con data-testid 'buscar-empleados'",
+        "Verificar que se muestra el elemento con data-testid 'sin-resultados' con el texto 'No se encontraron resultados'"
+      ],
+      "datos": {
+        "texto_busqueda": "xyz-sin-coincidencias"
+      },
+      "resultado_esperado": "Se muestra el mensaje 'No se encontraron resultados'"
+    },
+    {
+      "id": "CP-11",
+      "escenario": "Un empleado dado de baja sigue apareciendo en el directorio",
+      "nivel": "api",
+      "precondiciones": [
+        "Existe el empleado EMP-0007 con nombre Rosa Jiménez, departamento Tecnología y estado baja desde la fecha 2024-03-01"
+      ],
+      "pasos": [
+        "Enviar GET /api/empleados"
+      ],
+      "datos": {
+        "numero_empleado": "EMP-0007",
+        "estado": "baja",
+        "fecha_baja": "2024-03-01"
+      },
+      "resultado_esperado": "Respuesta 200 con una lista que incluye a EMP-0007 con estado baja y fecha_baja 2024-03-01"
+    },
+    {
+      "id": "CP-12",
+      "escenario": "Un empleado dado de baja sigue apareciendo en el directorio",
+      "nivel": "e2e",
+      "precondiciones": [
+        "Existe el empleado EMP-0007 con nombre Rosa Jiménez, departamento Tecnología y estado baja desde la fecha 2024-03-01"
+      ],
+      "pasos": [
+        "Abrir la pantalla del directorio de empleados",
+        "Verificar que aparece la fila con data-testid 'fila-empleado-EMP-0007'",
+        "Verificar que el elemento con data-testid 'estado-empleado-EMP-0007' muestra el texto 'Baja'"
+      ],
+      "datos": {
+        "numero_empleado": "EMP-0007",
+        "estado_mostrado": "Baja"
+      },
+      "resultado_esperado": "El empleado EMP-0007 aparece en el directorio con estado Baja"
+    }
+  ]
+}

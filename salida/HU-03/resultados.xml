@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="25" time="153.009" timestamp="2026-11-05T19:11:03.324043-06:00" hostname="MacBook-Pro-de-Julio.local"><testcase classname="tests.api.test_hu_02" name="test_cp_01_directorio_completo" time="0.063" /><testcase classname="tests.api.test_hu_02" name="test_cp_03_busqueda_por_nombre_sin_distinguir_mayusculas" time="0.013" /><testcase classname="tests.api.test_hu_02" name="test_cp_05_busqueda_por_correo_sin_distinguir_mayusculas" time="0.013" /><testcase classname="tests.api.test_hu_02" name="test_cp_07_filtrar_por_departamento" time="0.018" /><testcase classname="tests.api.test_hu_02" name="test_cp_09_busqueda_sin_coincidencias" time="0.013" /><testcase classname="tests.api.test_hu_02" name="test_cp_11_empleado_de_baja_sigue_en_el_directorio" time="0.008" /><testcase classname="tests.api.test_hu_03" name="test_cp_01_editar_puesto_y_departamento" time="0.017" /><testcase classname="tests.api.test_hu_03" name="test_cp_03_no_modifica_numero_empleado_ni_correo" time="0.014" /><testcase classname="tests.api.test_hu_03" name="test_cp_04_dar_de_baja_empleado_activo" time="0.024" /><testcase classname="tests.api.test_hu_03" name="test_cp_06_error_fecha_baja_anterior_a_ingreso" time="0.011" /><testcase classname="tests.api.test_hu_03" name="test_cp_08_error_editar_empleado_dado_de_baja" time="0.016" /><testcase classname="tests.api.test_hu_03" name="test_cp_10_error_puesto_muy_corto" time="0.010" /><testcase classname="tests.api.test_hu_03" name="test_cp_12_error_departamento_no_permitido" time="0.011" /><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_02_directorio_completo[chromium]" time="30.586"><failure message="playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for get_by_test_id(&quot;fila-empleado-EMP-0305&quot;) to be visible">tests/e2e/test_hu_02_e2e.py:72: in test_cp_02_directorio_completo
+    page.get_by_test_id(f"fila-empleado-{ana['numero_empleado']}").wait_for()
+../.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:13635: in wait_for
+    self._sync(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:767: in wait_for
+    await self._frame.wait_for_selector(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:395: in wait_for_selector
+    await self._channel.send(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:78: in send
+    return await self._connection.wrap_api_call(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:636: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.
+E   Call log:
+E     - waiting for get_by_test_id("fila-empleado-EMP-0305") to be visible</failure></testcase><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_04_busqueda_por_nombre[chromium]" time="30.096"><failure message="playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for get_by_test_id(&quot;fila-empleado-EMP-0307&quot;) to be visible">tests/e2e/test_hu_02_e2e.py:94: in test_cp_04_busqueda_por_nombre
+    page.get_by_test_id(f"fila-empleado-{maria['numero_empleado']}").wait_for()
+../.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:13635: in wait_for
+    self._sync(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:767: in wait_for
+    await self._frame.wait_for_selector(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:395: in wait_for_selector
+    await self._channel.send(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:78: in send
+    return await self._connection.wrap_api_call(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:636: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.
+E   Call log:
+E     - waiting for get_by_test_id("fila-empleado-EMP-0307") to be visible</failure></testcase><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_06_busqueda_por_correo[chromium]" time="30.114"><failure message="playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for get_by_test_id(&quot;fila-empleado-EMP-0308&quot;) to be visible">tests/e2e/test_hu_02_e2e.py:104: in test_cp_06_busqueda_por_correo
+    page.get_by_test_id(f"fila-empleado-{jorge['numero_empleado']}").wait_for()
+../.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:13635: in wait_for
+    self._sync(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:767: in wait_for
+    await self._frame.wait_for_selector(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:395: in wait_for_selector
+    await self._channel.send(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:78: in send
+    return await self._connection.wrap_api_call(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:636: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.
+E   Call log:
+E     - waiting for get_by_test_id("fila-empleado-EMP-0308") to be visible</failure></testcase><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_08_filtrar_por_departamento[chromium]" time="30.106"><failure message="playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for get_by_test_id(&quot;fila-empleado-EMP-0309&quot;) to be visible">tests/e2e/test_hu_02_e2e.py:115: in test_cp_08_filtrar_por_departamento
+    page.get_by_test_id(f"fila-empleado-{lucia['numero_empleado']}").wait_for()
+../.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:13635: in wait_for
+    self._sync(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:767: in wait_for
+    await self._frame.wait_for_selector(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:395: in wait_for_selector
+    await self._channel.send(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:78: in send
+    return await self._connection.wrap_api_call(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:636: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.
+E   Call log:
+E     - waiting for get_by_test_id("fila-empleado-EMP-0309") to be visible</failure></testcase><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_10_busqueda_sin_resultados[chromium]" time="0.137" /><testcase classname="tests.e2e.test_hu_02_e2e" name="test_cp_12_empleado_de_baja_en_el_directorio[chromium]" time="30.050"><failure message="playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.&#10;Call log:&#10;  - waiting for get_by_test_id(&quot;fila-empleado-EMP-TEST-b41923a3&quot;) to be visible">tests/e2e/test_hu_02_e2e.py:138: in test_cp_12_empleado_de_baja_en_el_directorio
+    page.get_by_test_id(f"fila-empleado-{rosa['numero_empleado']}").wait_for()
+../.venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py:13635: in wait_for
+    self._sync(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_locator.py:767: in wait_for
+    await self._frame.wait_for_selector(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_frame.py:395: in wait_for_selector
+    await self._channel.send(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:78: in send
+    return await self._connection.wrap_api_call(
+../.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:636: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.
+E   Call log:
+E     - waiting for get_by_test_id("fila-empleado-EMP-TEST-b41923a3") to be visible</failure></testcase><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_02_editar_puesto_y_departamento[chromium]" time="0.278" /><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_05_dar_de_baja_empleado_activo[chromium]" time="0.180" /><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_07_error_fecha_baja_anterior_a_ingreso[chromium]" time="0.177" /><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_09_error_editar_empleado_dado_de_baja[chromium]" time="0.237" /><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_11_error_puesto_muy_corto[chromium]" time="0.179" /><testcase classname="tests.e2e.test_hu_03_e2e" name="test_cp_13_error_departamento_no_permitido[chromium]" time="0.198" /></testsuite></testsuites>
